@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" class="light-style layout-wide customizer-hide" dir="ltr" data-theme="theme-default" data-assets-path="<%= assetsUrl %>" data-template="horizontal-menu-template">
+  <head>
+    <%- include('../_layouts/elements-head') %>
+    
+    <!-- Vendor CSS -->
+    <link rel="stylesheet" href="<%= assetsUrl %>vendor/libs/sweetalert2/sweetalert2.css" />
+    <link rel="stylesheet" href="<%= assetsUrl %>vendor/libs/spinkit/spinkit.css" />
+    <link rel="stylesheet" href="<%= assetsUrl %>vendor/libs/flatpickr/flatpickr.css" />
+    <link rel="stylesheet" href="<%= assetsUrl %>vendor/libs/jquery-ui/jquery-ui.css" />
+  </head>
+
+  <body>
+    <div class="layout-wrapper layout-content-navbar">
+      <div class="layout-container">
+        <!-- Menu -->
+        <%- include('../_layouts/elements-menu-approver') %>
+        <!-- / Menu -->
+
+        <!-- Layout container -->
+        <div class="layout-page">
+          <!-- Navbar -->
+          <%- include('../_layouts/elements-navbar') %>
+          <!-- / Navbar -->
+
+          <!-- Content wrapper -->
+          <div class="content-wrapper">
+            <!-- Content -->
+            <div class="container-xxl flex-grow-1 container-p-y">
+              <h4 class="py-3 mb-4"><span class="text-muted fw-light">Dasbor /</span> Kelola Service</h4>
+              <button type="button" class="btn rounded-pill btn-label-primary" data-bs-toggle="modal" data-bs-target="#modalAddService">
+                <span class="ti-xs ti ti-plus me-1"></span>Tambah Service
+              </button>
+
+              <!-- Service Table -->
+              <div class="card mt-3">
+                <h5 class="card-header">Daftar Service Kendaraan</h5>
+                <div class="table-responsive text-nowrap">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>Kendaraan</th>
+                        <th>Tanggal Mulai</th>
+                        <th>Perkiraan Selesai</th>
+                        <th>Deskripsi</th>
+                        <th>Status</th>
+                        <th>Aksi</th>
+                      </tr>
+                    </thead>
+                    <tbody id="listServices">
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <!-- Modal Add Service -->
+              <div class="modal fade" id="modalAddService" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title">Tambah Service</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form class="modal-body formAddService" method="POST" action="/u/api/services">
+                      <div class="row">
+                        <div class="col-12 mb-3">
+                          <label class="form-label">Pilih Kendaraan</label>
+                          <select class="form-select" id="vehicleId" name="vehicleId" required>
+                            <option value="">Pilih kendaraan</option>
+                          </select>
+                        </div>
+                        <div class="col-12">
+                          <button type="submit" class="btn btn-primary d-grid w-100">Tambah Service</button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+            <!-- / Content -->
+
+            <!-- Footer -->
+            <%- include('../_layouts/elements-footer') %>
+            <!-- / Footer -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <%- include('../_layouts/elements-js') %>
+    <script src="<%= assetsUrl %>vendor/libs/flatpickr/flatpickr.js"></script>
+    <script src="<%= assetsUrl %>js/pages-service.js"></script>
+    <script src="<%= assetsUrl %>vendor/libs/jquery-ui/jquery-ui.js"></script>
+  </body>
+</html> 
