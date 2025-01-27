@@ -7,7 +7,7 @@
 
 ## Daftar Username dan Password
 - **User**
-  - Username: `sales`
+  - Username: `saless`
   - Password: `123456`
   - Username: `Marketing`
   - Password: `123456`
